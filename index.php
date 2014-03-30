@@ -69,6 +69,6 @@
 		<div class="content">
 			<h1>Some content!</h1>
 		</div>
-
+                
 	</body>
 </html>
