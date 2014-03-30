@@ -3,6 +3,12 @@
 	<head>
             <link type="text/css" href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
             <script type="text/javascript" src="js/jQuery.js"></script>
+            <script type="text/javascript" src="js/scrolly.js"></script>
+            <script>
+                $(function (){
+                    $('.parallax').scrolly({bgParallax: true});
+                });
+            </script>
 		<style type="text/css">
 
 
@@ -19,8 +25,11 @@
 			background: -ms-radial-gradient(center,circle cover,#e4542d,#8b190c);
 			background: radial-gradient(circle at center,#e4542d,#8b190c);*/
 			font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+                        
 		}
-
+                #item{
+                    background: url('img/test.jpeg');
+                }
 		header .center {
 			max-width: 960px;
 			position: relative;
@@ -60,8 +69,7 @@
 		</style>
 	</head>
 	<body>
-
-		<header>
+             <header>
 			<div class="center">
 			<div class="logo">Lens_</div>
 			<div class="slogan">Building WebApps since 1991</div>
@@ -71,6 +79,6 @@
 		<div class="content">
 			<h1>Some content!</h1>
 		</div>
-                
+            <div id="item" class="parallax" data-velocity="-.3"></div>
 	</body>
 </html>
