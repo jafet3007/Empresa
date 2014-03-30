@@ -3,6 +3,7 @@
 	<head>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic' rel='stylesheet' type='text/css'>
         <link type="text/css" href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+<<<<<<< .mine
         <script type="text/javascript" src="js/jQuery.js"></script>
         <script type="text/javascript" src="js/scrolly.js"></script>
         <script>
@@ -10,6 +11,15 @@
                 $('.parallax').scrolly({bgParallax: true});
             });
         </script>
+=======
+            <script type="text/javascript" src="js/scrolly.js"></script>
+            <script type="text/javascript" src="js/scrolly.js"></script>
+            <script>
+                $(function (){
+                    $('.parallax').scrolly({bgParallax: true});
+                });
+            </script>
+>>>>>>> .theirs
 		<style type="text/css">
 
 
@@ -64,6 +74,7 @@
 			/*color: #FFF;*/
 		}
 
+
 		.content h2 {
 			font-weight: 300;
 			font-size: 80px;
@@ -71,7 +82,15 @@
 		}
 		</style>
 	</head>
-	<body>
+        <body>
+            <section id="bottle">
+                <article>
+                    <h1>Our products are a load of rubbish.</h1>   
+                    <p><strong>NIKE FREE TR FIT</strong>
+                        Each Nike 2010 World Championship Football jersey is made entirely from recycled polyester. That's up to eight recycled plastic bottles per jersey. In total, that diverted nearly 13 million plastic bottles from landfills. Yes, you read right. 13 million. Plastic. Bottles.</p>    
+                </article>
+                <div class="parallax" data-velocity="-.3"></div>
+            </section>
 		<header>
 			<div class="center">
 			<div class="logo">Lens_</div>
