@@ -5,7 +5,7 @@
 
 
 		body {
-			padding: 0;
+			padding: 0;    
 			margin: 0;
 			background: #f2f2f2;
 /*			background: #8b190c;
