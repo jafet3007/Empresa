@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+            <link type="text/css" href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+            <script type="text/javascript" src="js/jQuery.js"></script>
 		<style type="text/css">
 
 
