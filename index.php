@@ -4,14 +4,30 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
         <link type="text/css" href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-        <script type="text/javascript" src="js/jQuery.js"></script> 
-        <script type="text/javascript" src="js/skrollr.js"></script>
+        <script type="text/javascript" src="js/jquery.1.11.0.min.js"></script> 
+        <script type="text/javascript" src="libs/bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="libs/onepage-scroll/jquery.onepage-scroll.js"></script> 
+        <link type="text/css" href="libs/onepage-scroll/onepage-scroll.css" rel="stylesheet">
 
-        <script type="text/javascript">
-        	$(document).ready(function() {
-        		var s = skrollr.init();
-        	});
-        </script>
+		<script>
+		  $(document).ready(function(){
+				$(".main-content").onepage_scroll({
+				   sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
+				   easing: "ease-out",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in", 
+				                                    // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
+				   animationTime: 500,             // AnimationTime let you define how long each section takes to animate
+				   pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
+				   updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+				   beforeMove: function(index) {},  // This option accepts a callback function. The function will be called before the page moves.
+				   afterMove: function(index) {},   // This option accepts a callback function. The function will be called after the page moves.
+				   loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+				   keyboard: true,                  // You can activate the keyboard controls
+				   responsiveFallback: 600        // You can fallback to normal page scroll by defining the width of the browser in which
+				                                    // you want the responsive fallback to be triggered. For example, set this to 600 and whenever 
+				                                    // the browser's width is less than 600, the fallback will kick in.
+				});
+			});
+		</script>
 
 		<style type="text/css">
 			body {
@@ -24,32 +40,29 @@
 
 			section {
 				height: 700px;
+				overflow: hidden;
 			}
 
-			.bcg {
-				width: 100%;
-				height: 100%;
-				background: no-repeat center center;
-				background-size: cover;
-
-			}
-			#slide-0 .bcg {
+			#slide-0{
 				background-color: #FFF;
 				background-image: url('img/lens_2.jpg');
+				background-size: cover;
 			}
 
 			#slide-0 .logo {
 				border-radius: 50%;
 				width: 200px;
 				height: 200px;
-				background: rgba(255, 255, 255, 0.5);
+				background: rgba(255, 255, 255, 0.3);
 				border: 5px solid #FFF;
 				color: #FFF;
 				display: inline-block;
 				font-size: 4em;
 				font-weight: 200;
-				line-height: 3.5em;
+				line-height: 3.3em;
 				text-align: center;
+				margin: 50px 0 200px 0;
+
 				/*border: 5px solid #555;*/
 			}
 
@@ -57,152 +70,137 @@
 				font-weight: 200;
 				font-size: 4em;
 				color: #FFF;
+				margin-bottom: 20px;
 				/*text-shadow: 2px 2px 5px rgba(255, 255, 255, 1);*/
 				/*text-align: center;*/
 				/*margin: 0 100px;*/
 			}
 
+			@media all and (max-width: 580px) {
+				#slide-0 .slogan {
+					font-size: 2em;
+				}
 
-			#slide-1 .bcg {
+				#slide-0 .logo {
+					margin-bottom: 100px;
+				}
+
+				#slide-0 .lens-btn {
+					margin-bottom: 5px;
+					width: 95%;
+				}
+			}
+
+
+			#slide-1 {
 				background: none;
 				/*background-image: url('img/bridge2.jpg');*/
 			}
 
-			#slide-2 .bcg {
-				background: none;
+
+			#slide-2{
+				background: rgb(31,32,54);
 			}
 
-			#slide-5 .bcg {
-				background: #000;
+			#slide-5 {
+				background: #EEE;
+				border-top: 1px solid #CCC;
+/*				height: 200px !important;*/
 			}
 
 			nav {
 				margin-bottom: 0 !important;
 			}
 
+			.title {
+				font-weight: 200;
+				font-size: 4em;
+			}
+
+/*			taken from http://www.polymer-project.org/*/		
+			.lens-btn {
+				display: inline-block;
+				-webkit-transition: box-shadow 0.2s, background 0.2s;
+				transition: box-shadow 0.2s, background 0.2s;
+				border: none;
+				cursor: pointer;
+				overflow: hidden;
+				position: relative;
+				padding: 14px 14px 12px;
+				border-radius: 2px;
+				outline: none;
+				white-space: nowrap;
+				font-size: 13px;
+				line-height: 24px;
+				letter-spacing: 0.06em;
+				vertical-align: middle;
+				font-weight: 300;
+				text-transform: uppercase;
+				background: #FFF;
+			}
+
+			.lens-btn:hover, .lens-btn:active {
+				box-shadow: 0px 4px 10px 0 rgba(0,0,0,0.1),0px 2px 10px 0px rgba(0,0,0,0.1);
+			}
+
 		</style>
 	</head>
         <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-<div class="container-fluid">
-<!-- Brand and toggle get grouped for better mobile display -->
-<div class="navbar-header">
-<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-<a class="navbar-brand" href="#">LENS</a>
-</div>
-
-<!-- Collect the nav links, forms, and other content for toggling -->
-<div class="collapse navbar-collapse">
-<ul class="nav navbar-nav">
-<li class="active"><a href="#">Link</a></li>
-<li><a href="#">Link</a></li>
-<li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-<ul class="dropdown-menu">
-<li><a href="#">Action</a></li>
-<li><a href="#">Another action</a></li>
-<li><a href="#">Something else here</a></li>
-<li class="divider"></li>
-<li><a href="#">Separated link</a></li>
-<li class="divider"></li>
-<li><a href="#">One more separated link</a></li>
-</ul>
-</li>
-</ul>
-<form class="navbar-form navbar-left" role="search">
-<div class="form-group">
-<input type="text" class="form-control" placeholder="Search">
-</div>
-<button type="submit" class="btn btn-default">Submit</button>
-</form>
-<ul class="nav navbar-nav navbar-right">
-<li><a href="#">Link</a></li>
-<li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-<ul class="dropdown-menu">
-<li><a href="#">Action</a></li>
-<li><a href="#">Another action</a></li>
-<li><a href="#">Something else here</a></li>
-<li class="divider"></li>
-<li><a href="#">Separated link</a></li>
-</ul>
-</li>
-</ul>
-</div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
-</nav>
-
-<!-- 			
-	data-0: indica el estado inicial del elemento
-	para la transición en colores, los valores tienen que ser en rgb()! 
-	para dar valores en porcentaje se usa Np, N=cuánto porcentaje
-
-	data-top = data-0-top = data-top-top = data-0-top-top: When the element's top is aligned with the top of the viewport.
-	data-100-top = data-100-top-top: When the element's top is 100px above the top of the viewport.
-	data--100-top = data--100-top-top: When the element's top is 100px below the top of the viewport.
-	data-top-bottom= data-0-top-bottom: When the bottom of the element is at the top of the viewport (it's just not visible).
-	data-center-center = data-0-center-center: When the element is at the center of the viewport.
-	data-bottom-center = data-0-bottom-center: When the element's center is at the bottom of the viewport, thuss the upper half of the element is visible.
--->
-			<section id="slide-0">
-				<div class="bcg container text-center">
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
+<!-- 
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">LENS</a>
+					</div>
+					<div class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#slide-1">Slide 1</a></li>
+							<li><a href="#slide-2">Slide 2</a></li>
+						</ul>
+					</div><
+				</div>
+			</nav> -->
+			<div class="main-content">
+			<section id="slide-0" class="container-fluid text-center">
 					<div class="logo">Lens</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
 					<hr>
 					<div class="slogan">Building WebApps since 1991</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">&nbsp;</div>
 					<p>
-					  <button type="button" class="btn btn-primary btn-lg">Large button</button>
-					  <button type="button" class="btn btn-default btn-lg">Large button</button>
-					  <button type="button" class="btn btn-info btn-lg">Large button</button>
+					  <button type="button" class="lens-btn">Large button</button>
+					  <button type="button" class="lens-btn">Large button</button>
+					  <button type="button" class="lens-btn">Large button</button>
 					</p>
-				</div>
- 				
+
 			</section>
 
-			<section id="slide-1">
-				<div class="bcg"
-			        data-center="background-position: 50% 0px;"
-			        data-top-bottom="background-position: 50% -150px;"
-				></div>
+			<section id="slide-1" class="bcg container-fluid text-center">
+		
+				    <div style="position: relative;">
+				    	<p class="title">Mobile Development</p>
+				    	<img src="img/android.png" />
+				    	<img src="img/ios.png" />
+				    </div>
+	
+
 			</section>
 			
 			<section id="slide-2">
-			    <div class="bcg"
-					data-33p-top="background-color:rgb(1,27,59);"
-	        		data-top-center="background-color:(0,0,0);"
-	        		data-anchor-target="#slide-2"
-			    >
-			    </div>
 			</section>
 
 			<section></section>
 			<section id="slide-5">
-				<div class="bcg">
 					<p
-						data-100-bottom="opacity: 0;"
-						data-bottom="opacity: 1;"
-						data-anchor-target="#slide-5"
-						style="font-size: 5em;"
 					>
 						Alg&uacute;n footer
 					</p>
-				</div>
+
 			</section>
+			</div> <!-- class main -->
 	</body>
 </html>
