@@ -1,20 +1,21 @@
 ﻿<!DOCTYPE HTML>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
         <link type="text/css" href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
 
         <script type="text/javascript" src="js/jquery.1.11.0.min.js"></script> 
+        <script type="text/javascript" src="js/skrollr.js"></script> 
         <script type="text/javascript" src="libs/bootstrap/js/bootstrap.js"></script>
 
 		<script>
 		  $(document).ready(function(){
-
 		  	window.addEventListener("resize", function webViewerResize(evt) {
 		  		resizeSections();
 		  	});
-
 		  	resizeSections();
+		  	var s = skrollr.init();
 		});
 			
 		function resizeSections() {
@@ -22,7 +23,7 @@
 	  		dHeight = document.documentElement.clientHeight;
 	  		[].forEach.call(document.querySelectorAll('section'), function(e) {
 	  			if(!e.classList.contains('no-resize'))
-	  				e.style.minHeight = (dHeight < 700 ? MIN_SECTION_HEIGHT : dHeight)+'px';
+	  				e.style.height = (dHeight < 700 ? MIN_SECTION_HEIGHT : dHeight)+'px';
 	  		});
 		}
 
@@ -37,24 +38,35 @@
 	            color: #606060;
 			}
 
+			/*idea del maquetado http://soundrop.fm/*/
 			section {
 				overflow: hidden;
+				text-align: center;
+				width: 100%;
+				display: table;
 			}
 
 			#slide-0 {
 				background-color: #FFF;
 				background-image: url('img/lens_2.jpg');
 				background-size: cover;
-				height: 1px; /*hack para hacer que los row child obtengan height en porcentaje*/
 			}
 
+			section .wrapper {
+				display: table-cell;
+				width: 100%;
+				height: 100%;
+				vertical-align: middle;
+
+			}
+/*
 			#slide-0 .row {
 				height: 20%;
-			}
+			}*/
 
 			#slide-0 .row:first-child {
-				padding-top: 100px;
-				height: 60%;
+				/*padding-top: 100px;*/
+				/*height: 60%;*/
 			}
 
 			#slide-0 .logo {
@@ -69,6 +81,7 @@
 				font-weight: 200;
 				line-height: 3.3em;
 				text-align: center;
+				margin-bottom: 75px;
 			}
 
 			#slide-0 .slogan {
@@ -82,10 +95,10 @@
 				#slide-0 .slogan {
 					font-size: 2em;
 				}
-
+/*
 				#slide-0 .row:first-child {
-					height: 40%;
-				}
+					height: 50%;
+				}*/
 
 				#slide-0 .lens-btn {
 					margin-bottom: 5px;
@@ -96,12 +109,12 @@
 
 			#slide-1{
 				background: rgb(31,32,54);
+				text-align: justify;
 			}
 
 
 			#slide-2 {
 				background: none;
-				padding-top: 100px;
 			}
 			#slide-2 img {
 				max-height: 100px;
@@ -121,7 +134,7 @@
 				margin-bottom: 0 !important;
 			}
 
-			.title {
+			.bg-title {
 				font-weight: 200;
 				font-size: 4em;
 			}
@@ -170,7 +183,7 @@
 			}
 		</style>
 	</head>
-        <body>
+        <body id="skrollr-body">
 
 			<nav class="navbar navbar-default navbar-fixed-top lens-nav" role="navigation">
 				<div class="container-fluid">
@@ -200,54 +213,82 @@
 				</div>
 			</nav>
 
-			<div class="main-content">
 
-			<section id="slide-0" class="container-fluid text-center">
-
+			<section id="slide-0">
+				<div class="wrapper">
+					<div class="container">
 					<div class="row"><div class="logo">Lens</div></div>
 					<hr>
-					<div class="row"><div class="slogan">Building WebApps since 1991</div></div>
+					<div class="row"><div class="slogan">Building Apps since 1991</div></div>
 					<div class="row">
 					  <button type="button" class="lens-btn">Large button</button>
 					  <button type="button" class="lens-btn">Large button</button>
 					  <button type="button" class="lens-btn">Large button</button>
 					</div>
+					</div>
+				</div>
 			</section>
 
 			<section id="slide-1">
+				<div class="wrapper">
+					<div class="container">
+						<p class="bg-title">LENS</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href='http://loripsum.net/' target='_blank'>Compensabatur, inquit, cum summis doloribus laetitia.</a> Estne, quaeso, inquam, sitienti in bibendo voluptas? Nonne igitur tibi videntur, inquit, mala? <a href='http://loripsum.net/' target='_blank'>Quae ista amicitia est?</a> Ac tamen hic mallet non dolere. Scrupulum, inquam, abeunti; Duo Reges: constructio interrete. Vide igitur ne non debeas verbis nostris uti, sententiis tuis. </p>
+
+<blockquote cite='http://loripsum.net'>
+	Nam si +omnino nos+ neglegemus, in Aristonea vitia incidemus et peccata obliviscemurque quae virtuti ipsi principia dederimus;
+</blockquote>
+
+
+<p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest. Bonum liberi: misera orbitas. Primum cur ista res digna odio est, nisi quod est turpis? Quae cum magnifice primo dici viderentur, considerata minus probabantur. <a href='http://loripsum.net/' target='_blank'>Tum mihi Piso: Quid ergo?</a> <a href='http://loripsum.net/' target='_blank'>Si longus, levis;</a> Est enim tanti philosophi tamque nobilis audacter sua decreta defendere. <a href='http://loripsum.net/' target='_blank'>Avaritiamne minuis?</a> </p>
+
+<p>Varietates autem iniurasque fortunae facile veteres philosophorum praeceptis instituta vita superabat. Quamquam ab iis philosophiam et omnes ingenuas disciplinas habemus; Habent enim et bene longam et satis litigiosam disputationem. Haeret in salebra. Nec lapathi suavitatem acupenseri Galloni Laelius anteponebat, sed suavitatem ipsam neglegebat; Invidiosum nomen est, infame, suspectum. </p>
+
+<p>Quia nec honesto quic quam honestius nec turpi turpius. Verum hoc idem saepe faciamus. Et quidem iure fortasse, sed tamen non gravissimum est testimonium multitudinis. Bonum valitudo: miser morbus. Hoc est non modo cor non habere, sed ne palatum quidem. Quia nec honesto quic quam honestius nec turpi turpius. Ut optime, secundum naturam affectum esse possit. Qui autem esse poteris, nisi te amor ipse ceperit? Quia nec honesto quic quam honestius nec turpi turpius. <a href='http://loripsum.net/' target='_blank'>Paria sunt igitur.</a> </p>
+
+<p>Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres. Maximus dolor, inquit, brevis est. Habes, inquam, Cato, formam eorum, de quibus loquor, philosophorum. Sin laboramus, quis est, qui alienae modum statuat industriae? Inde sermone vario sex illa a Dipylo stadia confecimus. Neque solum ea communia, verum etiam paria esse dixerunt. Graecis hoc modicum est: Leonidas, Epaminondas, tres aliqui aut quattuor; Videamus igitur sententias eorum, tum ad verba redeamus. Duo enim genera quae erant, fecit tria. An hoc usque quaque, aliter in vita? </p>
+
+
+					</div>
+				</div>
 			</section>
 
 			<section id="slide-2">
-			    <div class="container text-center" >
-			    	<div class="row">
+				<div class="wrapper">
+			    <div class="container" >
+			    	<div class="row"
+						data-0="opacity:0;"
+						data-30p-top="opacity:0.5;"
+						data-center="opacity:1;"
+						data--30p-bottom="opacity:0.5;"
+						data-anchor-target="#slide-2"
+		    		>
 					   	<div class="col-md-6">
-					   		<p class="title">Mobile Development</p>
+					   		<p class="bg-title">Web Development</p>
+   					   		<div class="row">
+							   	<div class="col-md-4"><img class="img-rounded" src="img/html5.png" /></div>
+							   	<div class="col-md-4"><img class="img-rounded" src="img/css3.svg" /></div>
+						   		<div class="col-md-4"><img class="img-rounded" src="img/php.png" /></div>
+					   		</div>
+					   	</div>
+					   	<div class="col-md-6">
+					   		<p class="bg-title">Mobile Development</p>
 					   		<div class="row">
 							   	<div class="col-md-6"><img class="img-rounded" src="img/android.png" /></div>
 						   		<div class="col-md-6"><img class="img-rounded" src="img/ios.png" /></div>
 					   		</div>
 					   	</div>
-					   	<div class="col-md-6">
-					   		<p class="title">Web Development</p>
-   					   		<div class="row">
-							   	<div class="col-md-6"><img class="img-rounded" src="img/android.png" /></div>
-						   		<div class="col-md-6"><img class="img-rounded" src="img/ios.png" /></div>
-					   		</div>
-					   	</div>
-
 					</div>		
 			    </div>
+			</div>
 			</section>
 			
 
 			<section id="slide-3"></section>
 			<section id="slide-5" class="no-resize">
-					<p
-					>
-						Alg&uacute;n footer
-					</p>
-
+				<p>
+					Alg&uacute;n footer
+				</p>
 			</section>
-			</div> <!-- class main -->
 	</body>
 </html>
