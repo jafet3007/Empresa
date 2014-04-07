@@ -8,6 +8,7 @@
         <script type="text/javascript" src="js/jquery.1.11.0.min.js"></script> 
         <script type="text/javascript" src="js/skrollr.js"></script> 
         <script type="text/javascript" src="libs/bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGRnkhfBvaNdEXfvzciAxC6njq0obDHDw&sensor=false"></script>
 
 		<script>
 		  $(document).ready(function(){
@@ -16,8 +17,22 @@
 		  	});
 		  	resizeSections();
 		  	var s = skrollr.init();
+                        google.maps.event.addDomListener(window, 'load', initialize);   
 		});
-			
+		function initialize(){
+                    var myLatLng = new google.maps.LatLng(19.448758,-99.105865);
+                    var mapOptions = {
+                        zoom: 18,
+                        disableDefaultUI: true,
+                        center: myLatLng
+                    };
+                    var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
+                        map: map,
+                        title: 'Lens!'
+                    });
+                }	
 		function resizeSections() {
 			var MIN_SECTION_HEIGHT = 700;
 	  		dHeight = document.documentElement.clientHeight;
@@ -121,9 +136,31 @@
 			}
 
 			#slide-3 {
-				background: rgb(147,210,220);
+				//background: rgb(147,210,220);
+                                //background-image: url('img/footer.png');  
+                                height: 100%;
+                                width: 100%;
+                                margin: 0px;
+                                padding: 0px
 			}
-
+                        #hover{
+                            width: 100%;
+                            height: 100%;
+                            z-index: 2;
+                            background-color: black;
+                            opacity: 0.5;
+                            position: absolute;
+                        }
+                        #containerContact{
+                            width: 30%;
+                            height: 80%;
+                            left: 7%;
+                            top: 310%;
+                            z-index: 2;
+                            position: absolute;
+                            background-color: aqua;
+                            border-radius: 30px;
+                        }
 			#slide-5 {
 				background: #EEE;
 				border-top: 1px solid #CCC;
@@ -283,13 +320,19 @@
 			</div>
 			</section>
 			
-
-			<section id="slide-3"></section>
+                <section id="slide-3">
+                    <div id="containerContact">
+                        
+                    </div>
+                    <div id="hover"></div>
+                    <div id="map" style="width: 100%; height: 100%;"></div>
+                </section>
+           
+            
 			<section id="slide-5" class="no-resize">
 				<p>
 					Alg&uacute;n footer
 				</p>
 			</section>
-                        
 	</body>
 </html>
