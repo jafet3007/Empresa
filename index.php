@@ -59,12 +59,46 @@
 				text-align: center;
 				width: 100%;
 				display: table;
+
+				-webkit-transition: height 1s ease;  
+			    -moz-transition: height 1s ease;  
+			    -o-transition: height 1s ease;  
+			    transition: height 1s ease;
 			}
 
-			#slide-0 {
-				background-color: #FFF;
-				background-image: url('img/lens_2.jpg');
-				background-size: cover;
+
+			@-webkit-keyframes pulse {
+			  from { -webkit-box-shadow: 0 0 9px #FFF; }
+			  50% { -webkit-box-shadow: 0 0 18px #FFF; }
+			  to { -webkit-box-shadow: 0 0 9px #FFF; }
+			}
+			@-moz-keyframes pulse {
+			  from { -webkit-box-shadow: 0 0 9px #FFF; }
+			  50% { -webkit-box-shadow: 0 0 18px #FFF; }
+			  to { -webkit-box-shadow: 0 0 9px #FFF; }
+			}
+			@-o-keyframes pulse {
+			  from { box-shadow: 0 0 9px #FFF; }
+			  50% { box-shadow: 0 0 18px #FFF; }
+			  to { box-shadow: 0 0 9px #FFF; }
+			}
+			@keyframes pulse {
+			  from { box-shadow: 0 0 9px #FFF; }
+			  50% { box-shadow: 0 0 18px #FFF; }
+			  to { box-shadow: 0 0 9px #FFF; }
+			}
+
+			#header {
+	/*			background-image: url('img/lens_2.jpg');
+				background-size: cover;*/
+
+				background: #f08c89;
+				background-image: url('img/header.svg');
+				background-image: url('img/header.svg'), -moz-linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
+				background-image: url('img/header.svg'), -webkit-linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
+				background-image: url('img/header.svg'), -o-linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
+				background-image: url('img/header.svg'), -ms-linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
+				background-image: url('img/header.svg'), linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
 			}
 
 			section .wrapper {
@@ -75,16 +109,16 @@
 
 			}
 /*
-			#slide-0 .row {
+			#header .row {
 				height: 20%;
 			}*/
 
-			#slide-0 .row:first-child {
+			#header .row:first-child {
 				/*padding-top: 100px;*/
 				/*height: 60%;*/
 			}
 
-			#slide-0 .logo {
+			#header .logo {
 				border-radius: 50%;
 				width: 200px;
 				height: 200px;
@@ -97,9 +131,18 @@
 				line-height: 3.3em;
 				text-align: center;
 				margin-bottom: 75px;
+			  	-webkit-animation-name: pulse;
+			  	-webkit-animation-duration: 3s;
+			  	-webkit-animation-iteration-count: infinite;
+			  	-moz-animation-name: pulse;
+			  	-moz-animation-duration: 3s;
+			  	-moz-animation-iteration-count: infinite;
+			  	-o-animation-name: pulse;
+			  	-o-animation-duration: 3s;
+			  	-o-animation-iteration-count: infinite;
 			}
 
-			#slide-0 .slogan {
+			#header .slogan {
 				font-weight: 200;
 				font-size: 4em;
 				color: #FFF;
@@ -107,32 +150,37 @@
 			}
 
 			@media all and (max-width: 580px) {
-				#slide-0 .slogan {
+				#header .slogan {
 					font-size: 2em;
 				}
 /*
-				#slide-0 .row:first-child {
+				#header .row:first-child {
 					height: 50%;
 				}*/
 
-				#slide-0 .lens-btn {
+				#header .lens-btn {
 					margin-bottom: 5px;
 					width: 95%;
 				}
 			}
 
 
-			#slide-1{
-				background: rgb(31,32,54);
+			#description{
+				/*background-color: rgb(31,32,54);*/
+				background: #35b88f url('img/banner.svg') no-repeat bottom center;
 				text-align: justify;
+				color: #FFF;
+				height: 400px;
 			}
 
 
-			#slide-2 {
+			#products {
 				background: none;
+				height: 400px;
 			}
-			#slide-2 img {
+			#products img {
 				max-height: 100px;
+				max-width: 100px;
 			}
 
 			#slide-3 {
@@ -155,7 +203,7 @@
                             width: 30%;
                             height: 80%;
                             left: 7%;
-                            top: 310%;
+                            top: 249%;
                             z-index: 2;
                             position: absolute;
                             background-color: aqua;
@@ -163,8 +211,9 @@
                         }
 			#slide-5 {
 				background: #EEE;
+				background-image: url("img/footer.svg");
 				border-top: 1px solid #CCC;
-				height: 200px !important;
+				height: 400px;
 			}
 
 			nav {
@@ -196,6 +245,7 @@
 				font-weight: 300;
 				text-transform: uppercase;
 				background: #FFF;
+	            color: #606060;
 			}
 
 			.lens-btn:hover, .lens-btn:active {
@@ -239,10 +289,10 @@
 							</div>
 							<div class="collapse navbar-collapse navbar-right">
 								<ul class="nav navbar-nav">
-									<li><a href="#slide-1">¿lens?</a></li>
-									<li><a href="#slide-2">Productos</a></li>
+									<li><a href="#description">¿lens?</a></li>
+									<li><a href="#products">Productos</a></li>
 									<li><a href="#slide-3">Testimonios</a></li>
-									<li><a href="#slide-5">Contacto</a></li>
+									<li><a href="#footer">Contacto</a></li>
 								</ul>
 							</div>
 						</div>
@@ -251,7 +301,7 @@
 			</nav>
 
 
-			<section id="slide-0">
+			<section id="header">
 				<div class="wrapper">
 					<div class="container">
 					<div class="row"><div class="logo">Lens</div></div>
@@ -266,58 +316,53 @@
 				</div>
 			</section>
 
-			<section id="slide-1">
-				<div class="wrapper">
-					<div class="container">
-						<p class="bg-title">LENS</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href='http://loripsum.net/' target='_blank'>Compensabatur, inquit, cum summis doloribus laetitia.</a> Estne, quaeso, inquam, sitienti in bibendo voluptas? Nonne igitur tibi videntur, inquit, mala? <a href='http://loripsum.net/' target='_blank'>Quae ista amicitia est?</a> Ac tamen hic mallet non dolere. Scrupulum, inquam, abeunti; Duo Reges: constructio interrete. Vide igitur ne non debeas verbis nostris uti, sententiis tuis. </p>
-
-<blockquote cite='http://loripsum.net'>
-	Nam si +omnino nos+ neglegemus, in Aristonea vitia incidemus et peccata obliviscemurque quae virtuti ipsi principia dederimus;
-</blockquote>
-
-
-<p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest. Bonum liberi: misera orbitas. Primum cur ista res digna odio est, nisi quod est turpis? Quae cum magnifice primo dici viderentur, considerata minus probabantur. <a href='http://loripsum.net/' target='_blank'>Tum mihi Piso: Quid ergo?</a> <a href='http://loripsum.net/' target='_blank'>Si longus, levis;</a> Est enim tanti philosophi tamque nobilis audacter sua decreta defendere. <a href='http://loripsum.net/' target='_blank'>Avaritiamne minuis?</a> </p>
-
-<p>Varietates autem iniurasque fortunae facile veteres philosophorum praeceptis instituta vita superabat. Quamquam ab iis philosophiam et omnes ingenuas disciplinas habemus; Habent enim et bene longam et satis litigiosam disputationem. Haeret in salebra. Nec lapathi suavitatem acupenseri Galloni Laelius anteponebat, sed suavitatem ipsam neglegebat; Invidiosum nomen est, infame, suspectum. </p>
-
-<p>Quia nec honesto quic quam honestius nec turpi turpius. Verum hoc idem saepe faciamus. Et quidem iure fortasse, sed tamen non gravissimum est testimonium multitudinis. Bonum valitudo: miser morbus. Hoc est non modo cor non habere, sed ne palatum quidem. Quia nec honesto quic quam honestius nec turpi turpius. Ut optime, secundum naturam affectum esse possit. Qui autem esse poteris, nisi te amor ipse ceperit? Quia nec honesto quic quam honestius nec turpi turpius. <a href='http://loripsum.net/' target='_blank'>Paria sunt igitur.</a> </p>
-
-<p>Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres. Maximus dolor, inquit, brevis est. Habes, inquam, Cato, formam eorum, de quibus loquor, philosophorum. Sin laboramus, quis est, qui alienae modum statuat industriae? Inde sermone vario sex illa a Dipylo stadia confecimus. Neque solum ea communia, verum etiam paria esse dixerunt. Graecis hoc modicum est: Leonidas, Epaminondas, tres aliqui aut quattuor; Videamus igitur sententias eorum, tum ad verba redeamus. Duo enim genera quae erant, fecit tria. An hoc usque quaque, aliter in vita? </p>
-
-
-					</div>
-				</div>
-			</section>
-
-			<section id="slide-2">
+			<section class="no-resize" id="products">
 				<div class="wrapper">
 			    <div class="container" >
 			    	<div class="row"
-						data-0="opacity:0;"
-						data-30p-top="opacity:0.5;"
-						data-center="opacity:1;"
-						data--30p-bottom="opacity:0.5;"
-						data-anchor-target="#slide-2"
+						data-0="opacity:0.1;"
+						data-50p-top="opacity:0.5;"
+						data-center-center="opacity:1;"
+						data--50p-bottom="opacity:0.5;"
+						data-anchor-target="#products"
 		    		>
-					   	<div class="col-md-6">
-					   		<p class="bg-title">Web Development</p>
+					   	<div class="col-sm-5">
+					   		<p class="lead">Web Development</p>
    					   		<div class="row">
-							   	<div class="col-md-4"><img class="img-rounded" src="img/html5.png" /></div>
-							   	<div class="col-md-4"><img class="img-rounded" src="img/css3.svg" /></div>
-						   		<div class="col-md-4"><img class="img-rounded" src="img/php.png" /></div>
+							   	<div class="col-xs-4"><img class="img-rounded" src="img/html5.png" /></div>
+							   	<div class="col-xs-4"><img class="img-rounded" src="img/css3.svg" /></div>
+						   		<div class="col-xs-4"><img class="img-rounded" src="img/php.png" /></div>
 					   		</div>
 					   	</div>
-					   	<div class="col-md-6">
-					   		<p class="bg-title">Mobile Development</p>
+					   	<div class="col-sm-2"></div>
+					   	<div class="col-sm-5">
+					   		<p class="lead">Mobile Development</p>
 					   		<div class="row">
-							   	<div class="col-md-6"><img class="img-rounded" src="img/android.png" /></div>
-						   		<div class="col-md-6"><img class="img-rounded" src="img/ios.png" /></div>
+							   	<div class="col-xs-6"><img class="img-rounded" src="img/android.png" /></div>
+						   		<div class="col-xs-6"><img class="img-rounded" src="img/ios.png" /></div>
 					   		</div>
 					   	</div>
 					</div>		
 			    </div>
 			</div>
+			</section>
+
+			<section class="" id="description"
+				data-center="background-position:50% 100%;"
+				data-top-bottom="background-position:50% 10%;"
+				>
+				<div class="wrapper">
+					<div class="container text-center"
+						data-0="opacity:0.1;"
+						data-50p-top="position:relative;top:-50%;opacity:0;"
+						data-center="top:0%;opacity:1;"
+						data-anchor-target="#description"
+						>
+							<p class="bg-title">LENS</p>
+							<p class="lead">Lens es una empresa que bla bla bla... <a href='http://loripsum.net/' target='_blank'>Paria sunt igitur.</a> </p>
+						  	<button type="button" class="lens-btn">Large button</button>
+					</div>
+				</div>
 			</section>
 			
                 <section id="slide-3">
