@@ -184,31 +184,33 @@
 			}
 
 			#slide-3 {
-				//background: rgb(147,210,220);
-                                //background-image: url('img/footer.png');  
-                                height: 100%;
-                                width: 100%;
-                                margin: 0px;
-                                padding: 0px
+				background: rgb(147,210,220);
+                background-image: url('img/footer.png');  
+                height: 100%;
+                width: 100%;
+                margin: 0px;
+                padding: 0px
 			}
-                        #hover{
-                            width: 100%;
-                            height: 100%;
-                            z-index: 2;
-                            background-color: black;
-                            opacity: 0.5;
-                            position: absolute;
-                        }
-                        #containerContact{
-                            width: 30%;
-                            height: 80%;
-                            left: 7%;
-                            top: 249%;
-                            z-index: 2;
-                            position: absolute;
-                            background-color: aqua;
-                            border-radius: 30px;
-                        }
+
+            #hover{
+                width: 100%;
+                height: inherit;
+                z-index: 2;
+                background-color: black;
+                opacity: 0.3;
+                position: absolute;
+            }
+            #containerContact{
+                width: 30%;
+                /*height: 80%;*/
+           /*     left: 7%;
+                top: 249%;*/
+                /*z-index: 2;*/
+                /*position: absolute;*/
+                background-color: aqua;
+                border-radius: 30px;
+            }
+
 			#slide-5 {
 				background: #EEE;
 				background-image: url("img/footer.svg");
@@ -364,14 +366,22 @@
 					</div>
 				</div>
 			</section>
+
 			
-                <section id="slide-3">
-                    <div id="containerContact">
-                        
-                    </div>
-                    <div id="hover"></div>
-                    <div id="map" style="width: 100%; height: 100%;"></div>
-                </section>
+            <section id="slide-3">
+
+                <div id="hover"></div>
+                <div id="map" style="width: 100%; height: inherit; position: absolute;"></div>
+
+				<div class="wrapper" style="position:relative;z-index:3;">
+					<div class="container">
+	                    <div id="containerContact">
+	                    	<p>¿Aquí el formulario?</p>
+
+						</div>
+					</div>
+				</div>
+            </section>
            
             
 			<section id="slide-5" class="no-resize">
